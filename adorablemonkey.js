@@ -6,7 +6,7 @@ if (Meteor.isClient) {
 
   //Main
   Template.main.helpers({
-    counter: function () {
+    counter: function() {
       return Session.get('counter');
     }
   });
@@ -20,7 +20,13 @@ if (Meteor.isClient) {
 
 //------------- SERVER -------------
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  Meteor.startup(function() {
+    
   });
 }
+
+//------------- ROUTES -------------
+Router.map(function(){
+    this.route('main', {path: '/'} );
+    this.route('hudl', {path: '/hudl'});
+});
