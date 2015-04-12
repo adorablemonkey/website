@@ -8,13 +8,22 @@
 
 <template name="main">
 	<h1>Nothing to see here really.</h1>
-
-	<button>Click Me</button>
-	<p>You've pressed the button {{counter}} times.</p>
 </template>
 
 <template name="hudl">
-	<h1>Premier League Stats</h1>
+	<h1>Football Stats</h1>
+	
+	<ul>
+      {{#each seasons}}
+        {{> season}}
+      {{/each}}
+    </ul>
+</template>
 
-	<p>Yay hudl</p>
+<template name="season">	
+  <li>{{id}} {{caption}} {{ league }} {{ year }} {{ numberOfTeams }} {{ numberOfGames }} </li>
+</template>
+
+<template name="league">
+	<h1>League</h1>
 </template>
