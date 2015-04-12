@@ -1,2 +1,3 @@
-# website
-Meteor website
+Adorable Monkey website
+
+Runs on Meteor: https://www.meteor.com/
