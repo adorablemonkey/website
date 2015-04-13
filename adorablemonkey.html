@@ -11,33 +11,41 @@
 </template>
 
 <template name="hudl">
-	<h1>Football Stats</h1>
-	
-	<ul>
-    	{{#each seasons}}
-        	{{> season}}
-      	{{/each}}
-    </ul>
+	<div class = "container">
+		
+		<h1>Seasons</h1>		
+		
+		Use Test data: <input type="checkbox" checked="{{useTestData}}" class="toggleTestData" />
+		<ul>
+	    	{{#each seasons}}
+	        	{{> season}}
+	      	{{/each}}
+	    </ul>	    
 
-    <h2>League Table:</h2>
-    {{ leagueCaption }}
+	    <h2>{{ leagueCaption }}</h2>
 
-    {{#if leagueCaption}}
-	    {{#each standings}}
-	    	{{> standing}}
-	  	{{/each}}
-  	{{/if}}
+		<ul>
+	    {{#if leagueCaption}}
+		    {{#each standings}}
+		    	{{> standing}}
+		  	{{/each}}
+	  	{{/if}}
+	  	</ul>
+
+  	</div>
 </template>
 
 <template name="season">	
-  <li class="{{#if checked}}checked{{/if}}">    
-    <span class="text">{{ id }} {{ caption }} {{ league }} {{ year }} {{ numberOfTeams }} {{ numberOfGames }}</span>
+  <li>    
+    <span class="text">{{ caption }} (#Teams: {{ numberOfTeams }})</span>
     <button class="showInfo">i</button>
   </li>
 </template>
 
 <template name="standing">	
-  <li class="standing">
+<li>	
+    <img class="teamCrest" src="{{ crestUrl }}">
     <span class="text">{{ position }} {{ teamName }} {{ playedGames }} {{ points }} {{ goals }} {{ goalsAgainst }} {{ goalDifference }}</span>
-  </li>
+ </li>
 </template>
+
