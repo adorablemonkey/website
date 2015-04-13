@@ -14,16 +14,30 @@
 	<h1>Football Stats</h1>
 	
 	<ul>
-      {{#each seasons}}
-        {{> season}}
-      {{/each}}
+    	{{#each seasons}}
+        	{{> season}}
+      	{{/each}}
     </ul>
+
+    <h2>League Table:</h2>
+    {{ leagueCaption }}
+
+    {{#if leagueCaption}}
+	    {{#each standings}}
+	    	{{> standing}}
+	  	{{/each}}
+  	{{/if}}
 </template>
 
 <template name="season">	
-  <li>{{id}} {{caption}} {{ league }} {{ year }} {{ numberOfTeams }} {{ numberOfGames }} </li>
+  <li class="{{#if checked}}checked{{/if}}">    
+    <span class="text">{{ id }} {{ caption }} {{ league }} {{ year }} {{ numberOfTeams }} {{ numberOfGames }}</span>
+    <button class="showInfo">i</button>
+  </li>
 </template>
 
-<template name="league">
-	<h1>League</h1>
+<template name="standing">	
+  <li class="standing">
+    <span class="text">{{ position }} {{ teamName }} {{ playedGames }} {{ points }} {{ goals }} {{ goalsAgainst }} {{ goalDifference }}</span>
+  </li>
 </template>
