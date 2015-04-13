@@ -58,6 +58,20 @@ li .text {
 }
 
 .teamCrest {
-	width: 50px;
-	height: 50px;
+  width: 30px;
+  height: 30px;
+}
+
+table {
+  width: 40%;
+}
+
+th {
+  text-align: left;
+  color: black;
+}
+
+table, td, th {	
+  border: #eee solid 1px;
+  border-collapse: collapse;
 }

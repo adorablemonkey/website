@@ -24,14 +24,29 @@
 
 	    <h2>{{ leagueCaption }}</h2>
 
-		<ul>
 	    {{#if leagueCaption}}
-		    {{#each standings}}
-		    	{{> standing}}
-		  	{{/each}}
-	  	{{/if}}
-	  	</ul>
+	    <table>
+			<tr>
+				<th>Pos</th>
+			    <th>Club</th>			    
+			    <th>P</th>
+			    <th>Pts</th>
+			    <th>G</th>
+			    <th>GA</th>
 
+		  	</tr>
+		  	{{#each standings}}
+			<tr>
+				<td>{{ position }}</td>
+				<td><img class="teamCrest" src="{{ crestUrl }}"> {{ teamName }}</td>
+				<td>{{ playedGames }}</td>
+				<td>{{ points }}</td>
+				<td>{{ goals }}</td>
+				<td>{{ goalsAgainst }}</td>
+			</tr>
+			{{/each}}
+		</table>
+		{{/if}}		
   	</div>
 </template>
 
@@ -43,7 +58,7 @@
 </template>
 
 <template name="standing">	
-<li>	
+<li class="standing">	
     <img class="teamCrest" src="{{ crestUrl }}">
     <span class="text">{{ position }} {{ teamName }} {{ playedGames }} {{ points }} {{ goals }} {{ goalsAgainst }} {{ goalDifference }}</span>
  </li>
